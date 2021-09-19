@@ -2,6 +2,10 @@ import 'package:regexpattern/regexpattern.dart';
 
 class ValidateFunctions {
   static String validatePassword(String value) {
+    /// Password (Easy) Regex
+    /// Allowing all character except 'whitespace'
+    /// Minimum character: 8
+
     /// Password (Hard) Regex
     /// Allowing all character except 'whitespace'
     /// Must contains at least: 1
@@ -10,7 +14,7 @@ class ValidateFunctions {
     ///  1 number,
     ///  1 special character (symbol)
     /// Minimum character: 8
-    bool isHardPassword = value.isPasswordHard();
+    bool isHardPassword = value.isPasswordEasy();
     if (value.isEmpty) {
       return 'Please enter password';
     } else {

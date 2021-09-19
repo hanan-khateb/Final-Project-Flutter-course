@@ -1,3 +1,5 @@
+import 'package:depression_treatment/screens/SignUpSecond.dart';
+
 import '../models/FavoriteSetting.dart';
 import '../generated/l10n.dart';
 import '../models/ValidateFunctions.dart';
@@ -79,7 +81,7 @@ class SignUp extends StatelessWidget {
                   },
                   decoration: InputDecoration(
                       border: OutlineInputBorder(),
-                      labelText: S.of(context).userName,
+                      labelText: S.of(context).fullName,
                       prefixIcon: Icon(
                         Icons.person,
                         color: AppColors.formIcon,
@@ -144,32 +146,6 @@ class SignUp extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
-                  autofocus: true,
-                  keyboardType: TextInputType.emailAddress,
-                  style:
-                      TextStyle(color: Colors.black, fontFamily: 'SFUIDisplay'),
-                  onSaved: (value) {
-                    //  myData.add(value);
-                  },
-                  onChanged: (value) {
-                    email = value;
-                  },
-                  decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: S.of(context).email,
-                      prefixIcon: Icon(
-                        Icons.email,
-                        color: AppColors.formIcon,
-                      ),
-                      labelStyle: TextStyle(fontSize: 15)),
-                  validator: (value) {
-                    return ValidateFunctions.validateEmail(value);
-                  },
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: TextFormField(
                   obscureText: Provider.of<FavoriteSetting>(context)
                       .getisObscurePassword(),
                   onChanged: (value) {
@@ -188,8 +164,8 @@ class SignUp extends StatelessWidget {
                         icon:
                             Provider.of<FavoriteSetting>(context, listen: false)
                                     .getisObscurePassword()
-                                ? Icon(Icons.remove_red_eye_outlined)
-                                : Icon(Icons.remove_red_eye),
+                                ? Icon(Icons.visibility_off_outlined)
+                                : Icon(Icons.visibility_outlined),
                         onPressed: () {
                           Provider.of<FavoriteSetting>(context, listen: false)
                               .changeVisabilityOfPassword();
@@ -212,11 +188,12 @@ class SignUp extends StatelessWidget {
                           MaterialStateProperty.all(AppColors.submitButton)),
                   onPressed: () async {
                     if (_formKey.currentState.validate()) {
-                      _formKey.currentState.save();
-                      _formKey.currentState.reset();
+                      // _formKey.currentState.save();
+                      //_formKey.currentState.reset();
+                      Navigator.of(context).pushNamed(SignUpSecond.id);
                     }
                   },
-                  child: Text(S.of(context).submit),
+                  child: Text(S.of(context).next),
                 ),
               ),
               Padding(

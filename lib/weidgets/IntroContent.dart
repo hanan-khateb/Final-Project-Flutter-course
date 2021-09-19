@@ -4,11 +4,11 @@ import '../utils/FontsStyle.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 
-class WelcomeContent extends StatelessWidget {
+class IntroContent extends StatelessWidget {
   String imageName;
   int welcomeNumber;
   double screenWidth, screenHeight;
-  WelcomeContent({this.imageName, this.welcomeNumber});
+  IntroContent({this.imageName, this.welcomeNumber});
   @override
   Widget build(BuildContext context) {
     Map<int, dynamic> welcome = {
@@ -35,13 +35,13 @@ class WelcomeContent extends StatelessWidget {
                 Provider.of<FavoriteSetting>(context).language == "Arabic"
                     ? TextDirection.rtl
                     : TextDirection.ltr,
-            style: FontsStyle.wellcomeStyle(screenWidth - 40, screenHeight / 2),
+            style: FontsStyle.wellcomeStyle(screenWidth - 40, screenHeight / 3),
           ),
         ),
         Image.asset(
           "images/welcome/$imageName.jpg",
           width: screenWidth - 80,
-          height: screenHeight / 2,
+          height: screenHeight / 2 - 70,
           fit: BoxFit.fill,
         )
       ],

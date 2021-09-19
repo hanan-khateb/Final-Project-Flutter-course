@@ -1,3 +1,4 @@
+import 'package:depression_treatment/utils/AppColors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -18,4 +19,6 @@ class FontsStyle {
 
   static final appBarStyle =
       TextStyle(fontWeight: FontWeight.bold, fontFamily: "Merienda");
+  static final introAction = TextStyle(
+      color: AppColors.introText, fontSize: 20, fontFamily: "Merienda");
 }

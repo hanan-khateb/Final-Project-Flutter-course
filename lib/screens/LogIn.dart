@@ -1,3 +1,5 @@
+import 'package:depression_treatment/screens/HomePage.dart';
+
 import '../models/ValidateFunctions.dart';
 import '../screens/SignUp.dart';
 import '../generated/l10n.dart';
@@ -8,7 +10,7 @@ import 'package:provider/provider.dart';
 
 class LogIn extends StatelessWidget {
   static const id = "login";
-  String email;
+  String phone;
   String password;
   final _formKey = GlobalKey<FormState>();
 
@@ -32,20 +34,20 @@ class LogIn extends StatelessWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: TextFormField(
                     autofocus: true,
-                    keyboardType: TextInputType.emailAddress,
+                    keyboardType: TextInputType.phone,
                     style: TextStyle(
                         color: Colors.black, fontFamily: 'SFUIDisplay'),
                     onSaved: (value) {
                       //  myData.add(value);
                     },
                     onChanged: (value) {
-                      email = value;
+                      phone = value;
                     },
                     decoration: InputDecoration(
                         border: OutlineInputBorder(),
-                        labelText: S.of(context).email,
+                        labelText: S.of(context).phone,
                         prefixIcon: Icon(
-                          Icons.email,
+                          Icons.phone,
                           color: AppColors.formIcon,
                         ),
                         labelStyle: TextStyle(fontSize: 15)),
@@ -77,8 +79,8 @@ class LogIn extends StatelessWidget {
                           icon: Provider.of<FavoriteSetting>(context,
                                       listen: false)
                                   .getisObscurePassword()
-                              ? Icon(Icons.remove_red_eye_outlined)
-                              : Icon(Icons.remove_red_eye),
+                              ? Icon(Icons.visibility_off_outlined)
+                              : Icon(Icons.visibility_outlined),
                           onPressed: () {
                             Provider.of<FavoriteSetting>(context, listen: false)
                                 .changeVisabilityOfPassword();
@@ -97,10 +99,11 @@ class LogIn extends StatelessWidget {
                         backgroundColor:
                             MaterialStateProperty.all(AppColors.submitButton)),
                     onPressed: () {
-                      if (_formKey.currentState.validate()) {
-                        _formKey.currentState.save();
-                        _formKey.currentState.reset();
-                      }
+                      Navigator.of(context).pushNamed(HomePage.id);
+                      // if (_formKey.currentState.validate()) {
+                      // _formKey.currentState.save();
+                      //_formKey.currentState.reset();
+                      // }
                     },
                     child: Text(S.of(context).submit),
                   ),

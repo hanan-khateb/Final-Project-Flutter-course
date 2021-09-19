@@ -6,7 +6,9 @@
      "sign_in":"Sign In",
      "creat_acount":"Creat Account",
 
-
+     "skip":"skip",
+     "previous":"previous",
+     "Select_doctor":"Select your doctor",
 
      "___________Main Drawer Words__________________":"__",
      "aboutApp":"About App",
@@ -19,6 +21,10 @@
      "Arabic":"Arabic",   
      "change_password":"Change Password",
      "logout":"Log Out",
+     "next":"Next",
+     "fullName":"Full Name",
+
+
      "___________Wellcome Screen Sentences__________________":"_____",
 
      "welcome1":"Welcome in mental health care application",

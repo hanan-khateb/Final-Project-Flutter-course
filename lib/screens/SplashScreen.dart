@@ -1,5 +1,7 @@
 import 'dart:async';
 
+import 'package:depression_treatment/screens/IntroPage.dart';
+
 import '../models/FavoriteSetting.dart';
 import '../generated/l10n.dart';
 import '../utils/FontsStyle.dart';
@@ -23,7 +25,7 @@ class _AppSplashScreenState extends State<AppSplashScreen> {
       if (timeValue == 0) {
         t.cancel();
         Navigator.of(context).pop();
-        Navigator.of(context).pushNamed(HomePage.id);
+        Navigator.of(context).pushNamed(IntroPage.id);
       } else {
         timeValue--;
       }

@@ -1,52 +1,51 @@
 import '../generated/l10n.dart';
 import '../utils/AppColors.dart';
 import '../utils/FontsStyle.dart';
-import '../weidgets/WelcomeContent.dart';
 import '../weidgets/MyDrawer.dart';
+import 'InterviewTab.dart';
+import 'MainTab.dart';
+import '../screens/ProfileTab.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
-  static const id = "homepage";
+  static const id = "home";
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text(
-          S.of(context).mental_health,
-          style: FontsStyle.appBarStyle,
-        ),
-        backgroundColor: AppColors.appBarColor,
-      ),
-      drawer: MyDrawer(),
-      body: ListView(scrollDirection: Axis.horizontal, children: [
-        WelcomeContent(
-          imageName: "50",
-          welcomeNumber: 1,
-        ),
-        WelcomeContent(
-          imageName: "56",
-          welcomeNumber: 2,
-        ),
-        WelcomeContent(
-          imageName: "53",
-          welcomeNumber: 3,
-        ),
-        WelcomeContent(
-          imageName: "54",
-          welcomeNumber: 4,
-        ),
-        WelcomeContent(
-          imageName: "51",
-          welcomeNumber: 5,
-        ),
-        WelcomeContent(
-          imageName: "55",
-          welcomeNumber: 6,
-        ),
-      ]),
-    );
+    return DefaultTabController(
+        length: 3,
+        child: new Scaffold(
+          drawer: MyDrawer(),
+          appBar: AppBar(
+            backgroundColor: Colors.blue[900],
+            centerTitle: true,
+            title: Text(
+              S.of(context).mental_health,
+              style: FontsStyle.appBarStyle,
+            ),
+            //automaticallyImplyLeading: false,
+            bottom: PreferredSize(
+              preferredSize: Size.fromHeight(80),
+              child: Container(
+                  height: 70,
+                  color: Colors.blue[900],
+                  child: TabBar(
+                      labelColor: Colors.white,
+                      unselectedLabelColor: Colors.grey[500],
+                      indicatorColor: Colors.white,
+                      tabs: <Widget>[
+                        Tab(icon: Icon(Icons.home, size: 35)),
+                        Tab(
+                            icon:
+                                Icon(Icons.account_circle_outlined, size: 35)),
+                        Tab(icon: Icon(Icons.video_call_outlined, size: 35))
+                      ])),
+            ),
+          ),
+          body: TabBarView(
+            children: <Widget>[MainTab(), ProfileTab(), InterviewTab()],
+          ),
+        ));
   }
 }

@@ -75,6 +75,36 @@ class S {
     );
   }
 
+  /// `skip`
+  String get skip {
+    return Intl.message(
+      'skip',
+      name: 'skip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `previous`
+  String get previous {
+    return Intl.message(
+      'previous',
+      name: 'previous',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select your doctor`
+  String get Select_doctor {
+    return Intl.message(
+      'Select your doctor',
+      name: 'Select_doctor',
+      desc: '',
+      args: [],
+    );
+  }
+
   // skipped getter for the '___________Main Drawer Words__________________' key
 
   /// `About App`
@@ -172,6 +202,26 @@ class S {
     return Intl.message(
       'Log Out',
       name: 'logout',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Next`
+  String get next {
+    return Intl.message(
+      'Next',
+      name: 'next',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Full Name`
+  String get fullName {
+    return Intl.message(
+      'Full Name',
+      name: 'fullName',
       desc: '',
       args: [],
     );

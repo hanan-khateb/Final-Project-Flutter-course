@@ -35,8 +35,10 @@ dependencies:
   provider:
   regexpattern:
   http:
-  #shared_preferences: ^0.5.12
-
+  sqflite:
+  shared_preferences:
+  smooth_page_indicator:
+ # camera:
 
 dev_dependencies:
   flutter_test:

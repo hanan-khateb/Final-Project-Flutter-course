@@ -1,6 +1,9 @@
-import 'package:depression_treatment/TestConn.dart';
-
+import 'TestConn.dart';
+import 'screens/CameraAndBeck.dart';
 import 'screens/HomePage.dart';
+import 'screens/IntroPage.dart';
+import 'screens/SignUpSecond.dart';
+import 'screens/WelcomePage.dart';
 import 'screens/LogIn.dart';
 import 'screens/SignUp.dart';
 import 'models/FavoriteSetting.dart';
@@ -35,9 +38,12 @@ class MyApp extends StatelessWidget {
       routes: {
         SignUp.id: (context) => SignUp(),
         LogIn.id: (context) => LogIn(),
+        IntroPage.id: (context) => IntroPage(),
         HomePage.id: (context) => HomePage(),
-         TestConn.id: (context) => TestConn(),
-
+        WelcomePage.id: (context) => WelcomePage(),
+        SignUpSecond.id: (context) => SignUpSecond(),
+        CameraAndBeck.id: (context) => CameraAndBeck(),
+        TestConn.id: (context) => TestConn(),
       },
     );
   }
