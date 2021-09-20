@@ -28,8 +28,8 @@ class _WelcomePageState extends State<WelcomePage> {
       appBar: AppBar(
         leading: PopupMenuButton<languages>(
           onSelected: (languages result) {
-            Provider.of<FavoriteSetting>(context, listen: false)
-                .changeLanguage(result.toString().split(".")[1]);
+            // Provider.of<FavoriteSetting>(context, listen: false)
+            //   .changeLanguage(result.toString().split(".")[1]);
             setState(() {
               //  _selection = result;
               Provider.of<FavoriteSetting>(context, listen: false)

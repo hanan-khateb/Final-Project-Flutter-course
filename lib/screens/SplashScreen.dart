@@ -1,6 +1,8 @@
 import 'dart:async';
 
 import 'package:depression_treatment/screens/IntroPage.dart';
+import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../models/FavoriteSetting.dart';
 import '../generated/l10n.dart';
@@ -17,10 +19,13 @@ class AppSplashScreen extends StatefulWidget {
 
 class _AppSplashScreenState extends State<AppSplashScreen> {
   Timer viewTime;
-  int timeValue = 5;
+  int timeValue = 7;
+  Future<SharedPreferences> _prefs;
   @override
   void initState() {
     super.initState();
+    getLanguage();
+
     viewTime = new Timer.periodic(Duration(seconds: 1), (Timer t) {
       if (timeValue == 0) {
         t.cancel();
@@ -30,6 +35,13 @@ class _AppSplashScreenState extends State<AppSplashScreen> {
         timeValue--;
       }
     });
+  }
+
+  void getLanguage() async {
+    _prefs = SharedPreferences.getInstance();
+    final SharedPreferences prefs = await _prefs;
+    Provider.of<FavoriteSetting>(context, listen: false)
+        .changeLanguage(prefs.getString('language') ?? "Arabic");
   }
 
   @override
@@ -66,7 +78,7 @@ class _AppSplashScreenState extends State<AppSplashScreen> {
                       child: TextLiquidFill(
                         text: S.of(context).mental_health,
                         waveColor: Colors.blue[700],
-                        loadDuration: Duration(seconds: 4),
+                        loadDuration: Duration(milliseconds: 6500),
                         textStyle: FontsStyle.splashStyle(w, h * 0.3),
                         boxBackgroundColor: Colors.white,
                         boxHeight: h * 0.3,

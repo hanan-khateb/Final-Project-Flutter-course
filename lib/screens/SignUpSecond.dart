@@ -1,4 +1,6 @@
 import 'package:depression_treatment/generated/l10n.dart';
+import 'package:depression_treatment/screens/HomePage.dart';
+import 'package:depression_treatment/utils/FontsStyle.dart';
 import 'package:flutter/material.dart';
 
 class SignUpSecond extends StatefulWidget {
@@ -32,48 +34,55 @@ class _SignUpSecondState extends State<SignUpSecond> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Container(
-              color: Colors.grey[200],
-              height: MediaQuery.of(context).size.height / 3,
-            ),
-            Container(
-              height: MediaQuery.of(context).size.height / 10,
-              child: Text(S.of(context).Select_doctor),
-            ),
-            Container(
-              height: MediaQuery.of(context).size.height / 3,
-              child: ListView.builder(
-                  itemCount: doctorsName.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    return ListTile(
-                      title: Text(doctorsName[index]),
-                      leading: Radio(
-                        value: doctorsName[index] + "$index",
-                        groupValue: selectedDoctor,
-                        onChanged: (value) {
-                          setState(() {
-                            print(value);
-                            selectedDoctor = value;
-                          });
-                        },
-                      ),
-                    );
-                  }),
-            ),
-            Container(
-              padding: EdgeInsets.all(15),
-              height: MediaQuery.of(context).size.height / 10,
-              child: ElevatedButton(
-                onPressed: () {},
-                child: Text(S.of(context).submit),
+      resizeToAvoidBottomInset: true,
+      appBar: AppBar(),
+      body: Container(
+        padding: EdgeInsets.fromLTRB(10, 30, 10, 10),
+        child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Container(
+                height: 70,
+                child: Center(
+                    child: Text(S.of(context).Select_doctor,
+                        style: FontsStyle.mainStyle)),
               ),
-            )
-          ],
-        ));
+              Container(
+                width: MediaQuery.of(context).size.width - 20,
+                height: MediaQuery.of(context).size.height - 300,
+                child: ListView.builder(
+                    itemCount: doctorsName.length,
+                    itemBuilder: (BuildContext builder, int index) {
+                      return Card(
+                        child: ListTile(
+                          title: Text(doctorsName[index]),
+                          subtitle: Text("Country / city / adress"),
+                          leading: Radio(
+                            value: doctorsName[index] + "$index",
+                            groupValue: selectedDoctor,
+                            onChanged: (value) {
+                              setState(() {
+                                print(value);
+                                selectedDoctor = value;
+                              });
+                            },
+                          ),
+                        ),
+                      );
+                    }),
+              ),
+              Container(
+                height: 60,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).pushNamed(HomePage.id);
+                  },
+                  child: Text(S.of(context).submit),
+                ),
+              ),
+            ]),
+      ),
+    );
   }
 }

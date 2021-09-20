@@ -1,3 +1,6 @@
+import 'package:depression_treatment/models/FavoriteSetting.dart';
+import 'package:provider/provider.dart';
+
 import '../generated/l10n.dart';
 import '../utils/AppColors.dart';
 import '../utils/FontsStyle.dart';
@@ -10,13 +13,17 @@ import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
   static const id = "home";
-
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
         length: 3,
         child: new Scaffold(
-          drawer: MyDrawer(),
+          drawer: Provider.of<FavoriteSetting>(context).language == "Arabic"
+              ? MyDrawer()
+              : null,
+          endDrawer: Provider.of<FavoriteSetting>(context).language == "English"
+              ? MyDrawer()
+              : null,
           appBar: AppBar(
             backgroundColor: Colors.blue[900],
             centerTitle: true,

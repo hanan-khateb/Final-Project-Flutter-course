@@ -21,4 +21,7 @@ class FontsStyle {
       TextStyle(fontWeight: FontWeight.bold, fontFamily: "Merienda");
   static final introAction = TextStyle(
       color: AppColors.introText, fontSize: 20, fontFamily: "Merienda");
+
+  static final mainStyle =
+      TextStyle(color: Colors.black, fontSize: 20, fontFamily: "Merienda");
 }

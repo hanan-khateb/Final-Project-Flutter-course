@@ -1,24 +1,31 @@
+import 'package:depression_treatment/screens/OneArticleInformation.dart';
 import 'package:flutter/material.dart';
 
 class MainTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(builder: (BuildContext context, size) {
-      return Container(
-        color: Colors.white,
-        child: Container(
-        //  color: Colors.green,
-          height: 10,
-        ),
-        /* child: Card(
-          color: Colors.red,
-          elevation: 100,
-          child: ListTile(
-              title: Text("Articl Title"),
-              subtitle: Text("some details"),
-              leading: IconButton(
-                  icon: Icon(Icons.favorite_border, color: Colors.red)))),*/
-      );
-    });
+    return Scaffold(
+        body: ListView.builder(
+            itemCount: 20,
+            itemBuilder: (BuildContext builder, int index) {
+              return InkWell(
+                onTap: () {
+                  Navigator.of(context).pushNamed(OneArticleInformation.id);
+                },
+                child: Card(
+                    // elevation: 100,
+                    child: ListTile(
+                  title: Text("Articl Title"),
+                  subtitle: Text("some details"),
+                  leading: IconButton(
+                    onPressed: () {},
+                    icon: Icon(
+                      Icons.favorite_border,
+                      color: Colors.black,
+                    ),
+                  ),
+                )),
+              );
+            }));
   }
 }

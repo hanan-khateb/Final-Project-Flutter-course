@@ -1,14 +1,21 @@
+import 'dart:math';
+
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-class CameraAndBeck extends StatelessWidget {
+class CameraAndBeck extends StatefulWidget {
   static const id = "CameraAndBeck";
-
   @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
+  _CameraAndBeckState createState() => _CameraAndBeckState();
 }
 
+class _CameraAndBeckState extends State<CameraAndBeck> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold();
+  }
+}
 
 
 /*import 'package:camera/camera.dart';
@@ -54,5 +61,4 @@ class _CameraAndBeckState extends State<CameraAndBeck> {
       home: CameraPreview(controller),
     );
   }
-}
-*/
+}*/

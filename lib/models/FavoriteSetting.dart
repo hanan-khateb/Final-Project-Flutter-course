@@ -1,3 +1,5 @@
+import 'package:shared_preferences/shared_preferences.dart';
+
 import '../generated/l10n.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -10,7 +12,11 @@ class FavoriteSetting with ChangeNotifier {
   Map languagesToLocal = {"English": "en_US", "Arabic": "ar_SY"};
 
   TextDirection textDirectionApp = TextDirection.ltr;
+  Future<SharedPreferences> _prefs;
+
   FavoriteSetting() {
+    _prefs = SharedPreferences.getInstance();
+
     language = "English";
     textDirectionApp = TextDirection.ltr;
     isObscurePassword = true;
@@ -26,12 +32,15 @@ class FavoriteSetting with ChangeNotifier {
     return language;
   }*/
 
-  void changeLanguage(String selectedLanguage) {
+  void changeLanguage(String selectedLanguage) async {
     language = selectedLanguage;
     S.load(Locale(languagesToLocal[selectedLanguage]));
     language == "Arabic"
         ? textDirectionApp = TextDirection.rtl
         : textDirectionApp = TextDirection.ltr;
+
+    final SharedPreferences prefs = await _prefs;
+    prefs.setString('language', selectedLanguage);
     notifyListeners();
   }
 

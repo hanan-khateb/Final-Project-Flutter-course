@@ -1,3 +1,5 @@
+import 'screens/OneArticleInformation.dart';
+
 import 'TestConn.dart';
 import 'screens/CameraAndBeck.dart';
 import 'screens/HomePage.dart';
@@ -43,6 +45,7 @@ class MyApp extends StatelessWidget {
         WelcomePage.id: (context) => WelcomePage(),
         SignUpSecond.id: (context) => SignUpSecond(),
         CameraAndBeck.id: (context) => CameraAndBeck(),
+        OneArticleInformation.id: (context) => OneArticleInformation(),
         TestConn.id: (context) => TestConn(),
       },
     );
