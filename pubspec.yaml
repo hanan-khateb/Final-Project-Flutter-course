@@ -38,7 +38,8 @@ dependencies:
   sqflite:
   shared_preferences:
   smooth_page_indicator:
- # camera:
+  camerawesome:
+  camera:
 
 dev_dependencies:
   flutter_test:
